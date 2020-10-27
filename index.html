@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chronux by ChronoScan</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="./images/ChronoScan.ico">
+</head>
+<body>
+<div id="app">
+  <v-app v-if="loaded">
+    <v-app-bar
+      app
+      color="white"
+      height="50"
+    >
+      <v-avatar
+        class="mr-3"
+        
+        size="auto"
+        tile
+      >
+        <v-img
+          src="images/chrono_logo_main.png"
+        ></v-img>
+      </v-avatar>
+      
+      <v-spacer></v-spacer>
+
+      <v-btn
+        outlined
+        color="primary"
+        @click="goTo('documentation')"
+      >Documentation</v-btn>
+      <!--<v-toolbar-title class="font-weight-black headline">
+        VUETIFY
+      </v-toolbar-title>-->
+    </v-app-bar>
+<!--https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80-->
+
+    <v-main>
+      <section id="hero">
+        <v-row no-gutters>
+          <v-img
+            :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+            src="images/landing/blue4.png"
+          >
+            <v-theme-provider dark>
+              <v-container fill-height>
+                <v-row
+                  align="center"
+                  class="black--text mx-auto"
+                  justify="center"
+                >
+                  <v-col
+                    class="black--text text-center"
+                    cols="12"
+                    tag="h1"
+                  >
+                  <!--
+                    <span
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2']"
+                      class="font-weight-light"
+                    >
+                      WELCOME TO
+                    </span>
+
+                    <br>
+                  -->
+                    <span
+                      :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
+                      class="font-weight-black"
+                    >
+                    {{ appName }}
+                    </span>
+                    
+                    <br>
+
+                    <span class="display-2 font-weight-normal">
+                      ChronoScan New User eXperience
+                    </span>
+
+                  </v-col>
+
+                  <v-btn
+                    class="align-self-end"
+                    color="black"
+                    fab
+                    depressed
+                    @click="goTo('about-Chronoux')"
+                  >
+                    <v-icon>mdi-chevron-double-down</v-icon>
+                  </v-btn>
+                </v-row>
+              </v-container>
+            </v-theme-provider>
+          </v-img>
+        </v-row>
+      </section>
+
+      <section id="about-Chronoux">
+        <div class="py-12"></div>
+
+        <v-container class="text-center">
+          <h2 class="display-2 font-weight-bold mb-3">SIMPLY EASIER</h2>
+
+          <v-responsive
+            class="mx-auto mb-8"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-responsive
+            class="mx-auto title font-weight-light mb-8"
+            max-width="auto"
+          >
+           {{ appName }} is a new user interface application integrated into the <a class="primary--text text-decoration-none" href="https://www.chronoscan.org/" target="_blank">ChronoScan Capture Suite.</a><br />
+            Designed for end users and built with the latest technologies to be friendlier, faster and easier to use.
+          </v-responsive>
+
+          <v-row fill-height align="center" justity="center">
+
+            
+            <v-col
+              cols="12"
+              md="3"
+              offset-md="2"
+              align="center" justify="center"
+            >
+              <v-card
+                class="py-12 px-4"
+                color="grey lighten-5"
+                flat
+                :min-height="$vuetify.breakpoint.smAndDown ? 'auto' : 400"
+              >
+                <v-theme-provider dark>
+                  <div>
+                    <v-avatar
+                      class="elevation-6"
+                      size="128"
+                    >
+                        <v-img align="center" alt="ChronoScan Capture icon" src="images/chronoscan_ico.png"></v-img>
+                    </v-avatar>
+                  </div>
+                </v-theme-provider>
+
+                <v-card-title
+                  class="justify-center font-weight-normal text-uppercase"
+                >
+                  ChronoScan Capture
+                </v-card-title>
+
+                <v-card-text
+                  class="subtitle-1"
+                >
+                  Document Scanning & PDF/OCR data capture suite for creating and managing powerful and flexible applications.
+                </v-card-text>
+              </v-card>
+            </v-col>
+
+            <v-col 
+              cols="12"
+              md="2" align="center" justify="center">
+              <v-icon x-large>mdi-plus-thick</v-icon>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="3"
+              class="py-12 px-4"
+              align="center" justify="center">
+
+              <v-card
+                class="py-12 px-4"
+                color="grey lighten-5"
+                flat
+                :min-height="$vuetify.breakpoint.smAndDown ? 'auto' : 400"
+              >
+                <v-theme-provider dark>
+                  <div>
+                    <v-avatar
+                      class="elevation-6"
+                      size="128">
+                        <v-img align="center" alt="ChronoScan Capture icon" src="images/app_ico.png"></v-img>
+                    </v-avatar>
+                  </div>
+                </v-theme-provider>
+
+                <v-card-title
+                  class="justify-center font-weight-normal text-uppercase"
+                >
+                  {{ appName }} Interface
+                </v-card-title>
+
+                <v-card-text
+                  class="subtitle-1"
+                >
+                 {{ appName }} interface is for end users that only require indexing and validation functionality.
+                </v-card-text>
+              </v-card>
+            </v-col>
+
+          </v-row>
+
+          <div class="mt-12"></div>
+
+          <v-btn
+                    class="align-self-end"
+                    fab
+                    outlined
+                    @click="goTo('features')"
+                  >
+                    <v-icon>mdi-chevron-double-down</v-icon>
+                  </v-btn>
+          <!--
+          <v-btn
+            color="grey"
+            href="https://chronoscan.org"
+            outlined
+            large
+          >
+            <span class="grey--text text--darken-1 font-weight-bold">
+              Chronoux Documentation
+            </span>
+          </v-btn>
+        -->
+        </v-container>
+
+        <div class="py-12"></div>
+      </section>
+
+      <section
+        id="features"
+        class="grey lighten-3"
+      >
+        <div class="py-12"></div>
+
+        <v-container class="text-center">
+          <h2 class="display-2 font-weight-bold mb-3 text-uppercase">What it adds</h2>
+
+          <v-responsive
+            class="mx-auto mb-12"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-row>
+            <v-col
+              v-for="({ icon, title, text }, i) in features"
+              :key="i"
+              cols="12"
+              md="3"
+            >
+              <v-card
+                class="py-12 px-4"
+                color="grey lighten-5"
+                :height="$vuetify.breakpoint.smAndDown ? 'auto' : 360"
+                flat
+              >
+                <v-theme-provider dark>
+                  <div>
+                    <v-avatar
+                      color="primary"
+                      size="88"
+                    >
+                      <v-icon
+                        large
+                        v-text="icon"
+                      ></v-icon>
+                    </v-avatar>
+                  </div>
+                </v-theme-provider>
+
+                <v-card-title
+                  class="justify-center font-weight-black text-uppercase"
+                  v-text="title"
+                ></v-card-title>
+
+                <v-card-text
+                  class="subtitle-1"
+                  v-text="text"
+                >
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+          
+          <br />
+          <div class="mt-12"></div>
+
+          <v-btn
+                    class="align-self-end"
+                    fab
+                    outlined
+                    @click="goTo('what_it_looks_like')"
+                  >
+                    <v-icon>mdi-chevron-double-down</v-icon>
+                  </v-btn>
+
+        </v-container>
+
+       
+
+        <div class="py-12"></div>
+      </section>
+
+      <!--https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80 //  style="opacity: 0.8"-->
+      <!--src="images/landing/blue5.png"-->
+      <!--
+      <section id="stats">
+        <v-parallax
+          :height="$vuetify.breakpoint.smAndDown ? 600 : 400"
+          src="images/landing/blue5.png"
+          
+        >
+          <v-container fill-height>
+            <v-row class="mx-auto white--text">
+              <v-col
+                v-for="([value, title], i) of stats"
+                :key="i"
+                cols="12"
+                md="4"
+              >
+                <div class="text-center">
+                  <div
+                    class="display-3 font-weight-black mb-4"
+                    v-text="value"
+                    
+                  ></div>
+
+                  <div
+                    class="title font-weight-regular text-uppercase"
+                    v-text="title" 
+                  ></div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-parallax>
+      </section>
+    -->
+
+
+      <section id="what_it_looks_like">
+
+
+        <div class="py-12"></div>
+
+        <v-container >
+          <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">What it looks like</h2>
+
+          <v-responsive
+            class="mx-auto mb-12"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-row class="text-center" justify="center" align="center">
+            <v-carousel 
+                class="elevation-10"
+                show-arrows-on-hover
+                height="auto"
+                :style="`max-width: ${carWidth} !important;`"
+                hide-delimiter-background
+                delimiter-icon="mdi-minus"
+              >
+              <v-carousel-item
+                v-for="(item,i) in articles"               :key="i"
+                eager
+              >
+                <v-img :src="item.src" height="100%" eager/>
+                <!--
+                <v-carousel-item
+                  v-for="(item,i) in articles"
+                  :key="i"
+                  :src="item.src"
+                  reverse-transition="fade-transition"
+                  transition="fade-transition"
+                >-->
+              </v-carousel-item>
+            </v-carousel>
+          </v-row>
+
+        </v-container>
+
+        <div class="py-12"></div>
+      </section>
+
+      <v-sheet
+        id="documentation"
+        color="#333333"
+        dark
+        tag="section"
+        tile
+      >
+        <div class="py-12"></div>
+
+        <v-container>
+          <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">Documentation</h2>
+
+          <v-responsive
+            class="mx-auto mb-12"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-theme-provider light>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <v-btn
+                  color="primary"
+                  href="https://chronoscan-capture.github.io/Chronux-docs/#/"
+                  large
+                >
+                  <span class="font-weight-bold">
+                    {{ appName }} Documentation
+                  </span>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-theme-provider>
+        </v-container>
+
+        <div class="py-12"></div>
+      </v-sheet>
+    </v-main>
+
+    <v-footer
+      class="justify-center"
+      color="#292929"
+      height="100"
+    >
+      <div class="title font-weight-light grey--text text--lighten-1 text-center">
+        &copy; {{ (new Date()).getFullYear() }} — <a href="https://www.chronoscan.org" class="font-weight-light grey--text text--lighten-1">ChronoScan Capture.</a> All rights reserved.
+      </div>
+    </v-footer>
+
+    <v-dialog v-model="dialogSnippings" max-width="70%">
+      <v-card max-height="100%" flat>
+        <v-card-title class="headline text-uppercase">{{ APP_NAME }} - {{ dialogTitle }} <v-spacer></v-spacer> <v-btn color="error" text @click="dialogSnippings = false">Close</v-btn></v-card-title>
+        <v-divider></v-divider>
+        <v-img
+                :src="dialogSnippingsSrc"
+                lazy-src=""
+                height="auto"
+                cover
+                max-width="100%"
+        ></v-img>
+      </v-card>
+    </v-dialog>
+
+  </v-app>
+ </div>
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+ <script>
+  const APP_NAME = 'Chronux'
+  new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+    mounted() {
+      setTimeout(() => {this.loaded = true}, 500)
+    },
+    computed: {
+      carWidth () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return '100%'
+          case 'sm': return '100%'
+          case 'md': return '100%'
+          case 'lg': return '85%'
+          case 'xl': return '85%'
+        }
+      },
+    },
+    data () {
+      return {
+        loaded: false,
+        appName: APP_NAME,
+        dialogSnippings: false,
+        dialogSnippingsSrc: '',
+        dialogTitle: '',
+        articles: [
+          {
+            dialogTitle: 'Dashboard',
+            src: 'images/imgs/home.PNG',
+            title: 'Simple and intuitive interface',
+            text: 'Easy to find jobs and batches, one-step workflow for operators and indexers.',
+          },
+          {
+            dialogTitle: 'Indexer',
+            src: 'images/imgs/dash_table.PNG',
+            title: 'Fast and straight forward indexer',
+            text: 'Visual help lines from fields to areas. Simplified to the max. Interface for just having the necessary tools.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/slide.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/dash_grid.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/create_batch.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/settings.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/user_menu.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          // indexer
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/indexer_valid.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/indexer_valid_2.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/calculator.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/pop_up.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+          {
+            dialogTitle: 'Easier than ever',
+            src: 'images/imgs/indexer_settings.PNG',
+            title: 'A new user experience',
+            text: 'Accessibility and usability; pop-up forms on areas, dragging mode drawing and more for faster indexation.',
+          },
+        ],
+        features: [
+          {
+            icon: 'mdi-monitor',
+            title: 'Modern desktop app',
+            text: 'Integrated modern desktop app specifically for indexing and correcting documents.',
+          },
+          {
+            icon: 'mdi-account-switch',
+            title: 'Separate concepts',
+            text: 'Not all users have to use the same tools. Keep your ChronoScan Capture Suite for administrators and ' + APP_NAME + ' interface for end users.',
+          },
+          {
+            icon: 'mdi-power-plug',
+            title: 'Fully integrated',
+            text: 'Integrated with your new or already existing ChronoScan Capture configurations.',
+          },
+          {
+            icon: 'mdi-currency-usd-off',
+            title: 'No extra costs',
+            text: APP_NAME + ' comes as a new and free integrated tool in your ChronoScan Capture setup and is optional to use.',
+          },
+        ],
+        stats: [
+          ['Accessibility', ''],
+          ['Usability', ''],
+          ['Simplicity', ''],
+          // ['Directness', ''], 
+        ],
+      }
+    },
+    methods: {
+      goTo(to) {   
+        this.$vuetify.goTo(`#${to}`)
+      },
+      openDialogSnipping(src, dialogTitle) {
+        this.dialogTitle = dialogTitle
+        this.dialogSnippingsSrc = src
+        this.dialogSnippings = true
+      }
+    }
+  })
+</script>
+</body>
+</html>

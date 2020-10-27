@@ -355,7 +355,7 @@
 
         <div class="py-12"></div>
 
-        <v-container >
+        <v-container class="text-center">
           <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">What it looks like</h2>
 
           <v-responsive
@@ -381,17 +381,54 @@
                 eager
               >
                 <v-img :src="item.src" height="100%" eager/>
-                <!--
-                <v-carousel-item
-                  v-for="(item,i) in articles"
-                  :key="i"
-                  :src="item.src"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
-                >-->
               </v-carousel-item>
             </v-carousel>
           </v-row>
+
+          <br />
+          <div class="mt-12"></div>
+
+          <!--full screen-->
+<v-dialog
+      v-model="dialogFScreen"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          text
+          outlined
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Full screen
+        </v-btn>
+      </template>
+      <div class="fluid fill-height d-flex">
+        <v-btn absolute right fab class="error elevation-5" title="Close" small @click="dialogFScreen = false" style="top:10px;"><v-icon>mdi-close</v-icon></v-btn>
+        <v-carousel 
+                class="elevation-10"
+                show-arrows-on-hover
+                height="auto"
+                :style="`max-width: 100% !important;`"
+                hide-delimiter-background
+                delimiter-icon="mdi-minus"
+              >
+              <v-carousel-item
+                v-for="(item,i) in articles" 
+                :key="i"
+                eager
+              >
+                <v-img :src="item.src" height="100%" eager/>
+              </v-carousel-item>
+            </v-carousel>
+      </div>
+      </v-dialog>
+          <!--full screen-->
+
 
         </v-container>
 
@@ -424,7 +461,7 @@
               <v-col cols="12" class="text-center">
                 <v-btn
                   color="primary"
-                  href="https://chronoscan-capture.github.io/Chronux-docs/#/"
+                  href="https://chronoscan-capture.github.io/chronolite-docs/#/"
                   large
                 >
                   <span class="font-weight-bold">
@@ -490,6 +527,7 @@
     data () {
      
       return {
+        dialogFScreen: false,
         loaded: false,
         appName: APP_NAME,
         dialogSnippings: false,

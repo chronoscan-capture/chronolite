@@ -18,6 +18,8 @@
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="./images/ChronoScan.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookie-consent-box@2.4.0/dist/cookie-consent-box.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/cookie-consent-box@2.4.0/dist/cookie-consent-box.min.js"></script>
 </head>
 <body>
 <div id="app">
@@ -515,6 +517,12 @@
  </div>
  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+ <script>CookieBoxConfig = { backgroundColor: 'transparent', url: 'https://www.chronoscan.org/company_privacyPolicy.asp', linkTarget: '_blank' }</script>
+ <style>
+  .cookie-box {
+      background: rgba(0,0,0, 0.8) !important;
+  }
+ </style>
  <script>
  const APP_NAME = 'ChronoLite'
   new Vue({

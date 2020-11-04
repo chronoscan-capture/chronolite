@@ -207,13 +207,13 @@
                 <v-card-title
                   class="justify-center font-weight-normal text-uppercase"
                 >
-                  {{ appName }} Interface
+                  {{ appName }} UI
                 </v-card-title>
 
                 <v-card-text
                   class="subtitle-1"
                 >
-                 {{ appName }} interface is for end users that only require indexing and validation functionality.
+                 {{ appName }} UI is for end users that only require indexing and validation functionality.
                 </v-card-text>
               </v-card>
             </v-col>
@@ -524,6 +524,7 @@
   }
  </style>
  <script>
+
  const APP_NAME = 'ChronoLite'
   new Vue({
     el: '#app',
@@ -664,9 +665,24 @@
         this.dialogTitle = dialogTitle
         this.dialogSnippingsSrc = src
         this.dialogSnippings = true
+      },
+      /* For Simple multilanguage
+      $myT(string, arguments) {
+        return languages[this.language][string]
       }
+      */
     }
   })
+
+/*
+let languages = []
+languages['en'] = {
+  'Documentation' : 'Documentation'
+}
+languages['es'] = {
+  'Documentation' : 'Documentación'
+}
+*/
 </script>
 </body>
 </html>

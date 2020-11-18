@@ -43,10 +43,17 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        outlined
+        text
         color="primary"
         @click="goTo('documentation')"
       >Documentation</v-btn>
+
+      <v-btn
+        text
+        color="primary"
+        href="mailto:chronolite@chonoscan.org?subject=ChronoLite landing contact"
+      >Contact</v-btn>
+      <br />
       <!--<v-toolbar-title class="font-weight-black headline">
         VUETIFY
       </v-toolbar-title>-->
@@ -492,10 +499,10 @@
     <v-footer
       class="justify-center"
       color="#292929"
-      height="100"
+      height="120"
     >
-      <div class="title font-weight-light grey--text text--lighten-1 text-center">
-        &copy; {{ (new Date()).getFullYear() }} — <a href="https://www.chronoscan.org" class="font-weight-light grey--text text--lighten-1">ChronoScan Capture.</a> All rights reserved.
+      <div class="title font-weight-light grey--text text--lighten-1 text-center" style="clear: both;">
+        &copy; {{ (new Date()).getFullYear() }} — Chronolite by <a href="mailto:chronolite@chonoscan.org" class="font-weight-light grey--text text--lighten-1">ChronoScan Capture</a> All rights reserved
       </div>
     </v-footer>
 

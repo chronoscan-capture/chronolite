@@ -48,10 +48,11 @@
         @click="goTo('documentation')"
       >Documentation</v-btn>
 
+      <!--mailto:chronolite@chonoscan.org?subject=ChronoLite landing contact-->
       <v-btn
         text
         color="primary"
-        href="mailto:chronolite@chonoscan.org?subject=ChronoLite landing contact"
+        @click="goTo('contact')"
       >Contact</v-btn>
       <br />
       <!--<v-toolbar-title class="font-weight-black headline">
@@ -178,7 +179,7 @@
                 <v-card-text
                   class="subtitle-1"
                 >
-                  Document Scanning & PDF/OCR data capture suite for creating and managing powerful and flexible applications.
+                  Document Scanning & PDF/OCR data capture suite for creating and managing powerful and flexible applications
                 </v-card-text>
               </v-card>
             </v-col>
@@ -220,7 +221,7 @@
                 <v-card-text
                   class="subtitle-1"
                 >
-                 {{ appName }} UI is for end users that only require indexing and validation functionality.
+                 {{ appName }} UI is for end users that only require indexing and validation functionality
                 </v-card-text>
               </v-card>
             </v-col>
@@ -452,12 +453,13 @@
         </v-container>
 
         <div class="py-12"></div>
+
       </section>
 
+      <!--documentation-->
       <v-sheet
         id="documentation"
-        color="#333333"
-        dark
+        class="grey lighten-3"
         tag="section"
         tile
       >
@@ -494,6 +496,66 @@
 
         <div class="py-12"></div>
       </v-sheet>
+
+      <!-- contact -->
+
+      <v-sheet
+        id="contact"
+        color="#333333"
+        dark
+        tag="section"
+        tile
+      >
+        <div class="py-12"></div>
+
+        <v-container>
+          <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">Contact</h2>
+
+          <v-responsive
+            class="mx-auto mb-12"
+            width="56"
+          >
+            <v-divider class="mb-1"></v-divider>
+
+            <v-divider></v-divider>
+          </v-responsive>
+
+          <v-theme-provider light>
+            <v-row cols="10">
+
+              <v-col offset-md="2" md="3" sm="6" align="center" justify="center">
+
+                <h4 class="font-weight-normal mb-3 text-uppercase">Email</h4>
+                <!--mailto:chronolite@chonoscan.org?subject=ChronoLite landing contact-->
+                <v-btn
+                  text
+                  color="info"
+                  href="mailto:chronolite@chonoscan.org?subject=ChronoLite landing contact"
+                >chronolite@chonoscan.org
+              </v-btn>
+
+              </v-col>
+              <v-col md="2" class="d-none d-md-block" align="center" justify="center"><v-divider vertical /></v-col>
+
+              <v-col md="3" sm="6" align="center" justify="center">
+
+                <h4 class="font-weight-normal mb-3 text-uppercase">Request a feature</h4>
+                <v-btn
+                  text
+                  color="info"
+                  href="https://chronoscan.org/chronoscanhub/#/guest/chronoscan/feature-request/"
+                >
+                  ChronoScanHub / ChronoLite
+                </v-btn>
+
+              </v-col>
+            </v-row>
+          </v-theme-provider>
+        </v-container>
+
+        <div class="py-12"></div>
+      </v-sheet>
+
     </v-main>
 
     <v-footer

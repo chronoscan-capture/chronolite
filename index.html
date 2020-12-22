@@ -598,6 +598,10 @@
   new Vue({
     el: '#app',
     vuetify: new Vuetify(),
+    created() {
+      console.log(new Date().getFullYear()  + ' - reymad@ChronoScanCapture')
+      console.log("-------------------------------")
+    },
     mounted() {
       setTimeout(() => {this.loaded = true}, 500)
     },
